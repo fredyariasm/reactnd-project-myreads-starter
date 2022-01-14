@@ -184,6 +184,11 @@ button:active {
   cursor: pointer;
 }
 
+option:checked {    
+  background-color: rgb(104, 104, 104);
+  color: rgb(255, 255, 255);
+}
+
 /* book cover */
 
 .book-cover {
@@ -196,3 +201,4 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+
