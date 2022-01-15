@@ -3,7 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Search from './Search'
 import BooksShelves from './BooksShelves'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { toCustomBooks } from './BooksHelpers'
 import NoFound from './NoFound'
 
@@ -69,19 +69,23 @@ class BooksApp extends React.Component {
     return (
 
       <div>
-        <Route exact path='/' render={() => (
-          <BooksShelves
-            books={this.state.books}
-            onUpdateBook={this.updateBook}
-          />
-        )} />
-        <Route path='/search' render={() => (
-          <Search
-            onUpdateBook={this.updateBook}
-            myBooks={this.state.books}
-          />
-        )} />
-        <Route component={NoFound} />
+        <Switch>
+          <Route exact path='/' render={() => (
+            <BooksShelves
+              books={this.state.books}
+              onUpdateBook={this.updateBook}
+            />
+          )} />
+          <Route path='/search' render={() => (
+            <Search
+              onUpdateBook={this.updateBook}
+              myBooks={this.state.books}
+            />
+          )} />
+          <Route component={NoFound} />
+
+        </Switch>
+
       </div>
     )
   }
