@@ -4,7 +4,8 @@ import './App.css'
 import Search from './Search'
 import BooksShelves from './BooksShelves'
 import { Route } from 'react-router-dom'
-import { toCustomBooks } from './BooksHelpers';
+import { toCustomBooks } from './BooksHelpers'
+import NoFound from './NoFound'
 
 class BooksApp extends React.Component {
   state = {
@@ -24,7 +25,7 @@ class BooksApp extends React.Component {
   updateBook = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then(() => {
-        book.shelf =shelf;
+        book.shelf = shelf;
         this.updateBookState(book);
       })
   }
@@ -80,6 +81,7 @@ class BooksApp extends React.Component {
             myBooks={this.state.books}
           />
         )} />
+        <Route component={NoFound} />
       </div>
     )
   }
