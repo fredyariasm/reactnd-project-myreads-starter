@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI'
 import { toCustomBooksSearch } from './BooksHelpers';
-import HomeButton from './HomeButton';
 import Shelf from './Shelf';
-
+import { Link } from 'react-router-dom';
 
 class Search extends Component {
 
@@ -34,8 +33,8 @@ class Search extends Component {
         const { onUpdateBook } = this.props
         return (
             <div className="search-books">
-                <div className="search-books-bar">                  
-                    <HomeButton />
+                <div className="search-books-bar">
+                    <Link  to="/" className="close-search">Close</Link>
                     <div className="search-books-input-wrapper">
                         {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
