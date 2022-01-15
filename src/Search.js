@@ -16,7 +16,7 @@ class Search extends Component {
     }
 
     searchBooks = (query) => {
-        if (query.length === 0) {
+        if (query.trim().length === 0) {
             this.setState({ booksResult: [] });
         }
         else if (query.trim()) {
